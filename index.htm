@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>mooCarousel</title>
+<script type="text/javascript" src="js/mootools-core-1.3-full-compat.js"></script>
+<script type="text/javascript" src="js/mooCarousel.js"></script>
+<style>
+	.imagesP, .imagesV{
+		visibility:hidden;
+	}
+</style>
+<script type="text/javascript">	
+	window.addEvent('load', function(){
+		new mooCarousel({elementClass: '.imagesP', slideStep: 2, elementsPerScreen: 3, direction: 'horizontal', bgColor: 'black', arrowColorScheme: 'blue'});
+		
+		new mooCarousel({elementClass: '.imagesV', slideStep: 1.5, elementsPerScreen: 3, direction: 'vertical', bgColor: '#151D54', arrowColorScheme: 'darkblue'});		
+	});	
+</script>
+</head>
+<body style="background-color: white;">
+<h1>mooCarousel</h1>
+A mootools based image carousel. This is very lightweight and extremely configurable pluggin. Supports both horizontal and vertical carousels with multiple options. You can change the background color of the carousel, the animation style, animation duration, arrow image themes etc. (Look for options in the end)
+Tested with FF 3.6.11, IE 7.0, Chrome 7.0.517.41, Opera 10.60
+<h2>Horizontal Carousel</h2>
+<div>
+	<img class="imagesP" src="nThumbs/1280_1024_nature_wallpaper_106320843.jpg" />
+	<img class="imagesP" src="nThumbs/bjnxqwa0l0.jpg" />
+	<img class="imagesP" src="nThumbs/Exclusive Wallpaper Nature.jpeg" />
+	<img class="imagesP" src="nThumbs/green-nature-wallpaper.jpg" />
+	<img class="imagesP" src="nThumbs/nature_wallpaper_10.jpg" />
+	<img class="imagesP" src="nThumbs/nature_wallpapers.jpg" />
+	<img class="imagesP" src="nThumbs/nature-backgrounds-cerro-torre-los-glaciares-national-park-patagonia-argentina.jpg" />
+	<img class="imagesP" src="nThumbs/nature-backgrounds-coast-of-victoria-australia.jpg" />
+	<img class="imagesP" src="nThumbs/nature-backgrounds-cool-runnings-yosemite-national-park-california.jpg" />
+	<img class="imagesP" src="nThumbs/nature-backgrounds-cool-water-sawtooth-wilderness-idaho.jpg" />
+	<img class="imagesP" src="nThumbs/nature-backgrounds-cumberland-falls-kentucky.jpg" />
+	<img class="imagesP" src="nThumbs/Nature-wallpaper-98.jpg" />
+	<img class="imagesP" src="nThumbs/nature-wallpaper-aerial-view-of-niagara-falls-ontario-canada.jpg" />
+	<img class="imagesP" src="nThumbs/nature-wallpapers.jpg" />
+	<img class="imagesP" src="nThumbs/wallpaper_nature_01.jpg" />
+</div>
+<h2>Vertical Carousel</h2>
+<div>
+	<img class="imagesV" src="nThumbs/1280_1024_nature_wallpaper_106320843.jpg" />
+	<img class="imagesV" src="nThumbs/bjnxqwa0l0.jpg" />
+	<img class="imagesV" src="nThumbs/Exclusive Wallpaper Nature.jpeg" />
+	<img class="imagesV" src="nThumbs/green-nature-wallpaper.jpg" />
+	<img class="imagesV" src="nThumbs/nature_wallpaper_10.jpg" />
+	<img class="imagesV" src="nThumbs/nature_wallpapers.jpg" />
+	<img class="imagesV" src="nThumbs/nature-backgrounds-cerro-torre-los-glaciares-national-park-patagonia-argentina.jpg" />
+	<img class="imagesV" src="nThumbs/nature-backgrounds-coast-of-victoria-australia.jpg" />
+	<img class="imagesV" src="nThumbs/nature-backgrounds-cool-runnings-yosemite-national-park-california.jpg" />
+	<img class="imagesV" src="nThumbs/nature-backgrounds-cool-water-sawtooth-wilderness-idaho.jpg" />
+	<img class="imagesV" src="nThumbs/nature-backgrounds-cumberland-falls-kentucky.jpg" />
+	<img class="imagesV" src="nThumbs/Nature-wallpaper-98.jpg" />
+	<img class="imagesV" src="nThumbs/nature-wallpaper-aerial-view-of-niagara-falls-ontario-canada.jpg" />
+	<img class="imagesV" src="nThumbs/nature-wallpapers.jpg" />
+	<img class="imagesV" src="nThumbs/wallpaper_nature_01.jpg" />
+</div>
+
+<h2>How to use</h2>
+<ul>
+<li>Since, mooCarousel is a carousel script based on mootools, therefore, first you need to include mootools. You can download latest version from <a href="http://mootools.net/download">here</a>.</li>
+<li>Download the mooCarousel script and images from <a href="http://github.com/saadnawaz/moocarousel/">here</a> and include it in the script</li>
+<li>Since, the library requires all images to load, therefore, try a small trick of putting visibility:hidden in the style of all images. The plugin will itself change the visibility of images accordingly.</li>
+<li>Assign all the elements same class name on which you want to create carousel</li>
+<li>Instantiate the carousel class onload using;<br/>
+	<i><b>new mooCarousel({elementClass: '.imagesP', elementsPerScreen: 3, direction: 'horizontal', bgColor: 'black', arrowColorScheme: 'blue'});</b></i>
+</li>
+elementClass: null,
+			slideStep: 1,
+			opacityLevel: 0.5,
+			elementsPerScreen: 4,
+			bgColor: 'gray',
+			direction: 'horizontal',
+			transitionEffect: Fx.Transitions.Bounce.easeOut,
+			durationTime: 'normal',
+			arrowColorScheme: 'blue'
+<li>Options are:
+	<ul>
+		<li><b>elementsPerScreen:</b> Number of images you want to display per carousel slide. Default to 4</li>
+		<li><b>elementClass:</b> Name of the class which is applied on all images</li>
+		<li><b>slideStep:</b> Number of images you want to move when carousel slide is moved using arrow buttons. By default 1 image is moved out of the carousel window</li>
+		<li><b>durationTime:</b> Duration of the effect. Possible values are 'short', 'normal', 'long' or time in milliseconds. Default to 'long'</li>
+		<li><b>transitionEffect:</b> Mootools Fx.Transition effect. Defaults to Fx.Transitions.Bounce.easeOut</li>
+		<li><b>bgColor:</b> Background color of the carousel. Default is black (#000000)</li>
+		<li><b>direction:</b> Direction of the carousel. Possible values are "horizontal" and "vertical". Default is "horizontal"</li>
+		<li><b>direction:</b> Direction of the carousel. Possible values are "horizontal" and "vertical". Default is "horizontal"</li>
+		<li><b>arrowColorScheme:</b> The color scheme of the arrow images. Possible values are "blue", "darkblue", "black", "lightgreen", "darkgreen", "orange", "red". Default is "blue"</li>
+		<li><b>opacityLevel:</b> When the carousel is moved, how much opacity of the images should be decreased. Possible values are 0 to 1. Default is 0.4</li>
+	</ul>
+</li>
+</ul>
+</body>
+</html>
