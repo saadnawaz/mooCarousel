@@ -1,0 +1,5 @@
+Distributed Under MIT licence, Copyright Rana Saad Nawaz
+A mootools based image carousel. This is very lightweight and extremely configurable pluggin. Supports both horizontal and vertical carousels with multiple options. You can change the background color of the carousel, the animation style, animation duration, arrow image themes etc. (Look for options in the end)
+Tested with FF 3.6.11, IE 7.0, Chrome 7.0.517.41, Opera 10.60
+
+Arrow images taken from: http://freepsdfiles.net/graphics/free-psd-arrow-buttons-pack/
