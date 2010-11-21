@@ -1,3 +1,4 @@
+// Distributed Under MIT licence, Copyright Rana Saad Nawaz
 var mooCarousel = new Class({
 		Implements: [Options, Events],
 		elements: null,				
@@ -9,6 +10,7 @@ var mooCarousel = new Class({
 		secondDirectionName: 'right',
 		numberPrefix: null,
 		options: {
+			imagesPath: 'img/',
 			elementClass: null,
 			slideStep: 1,
 			opacityLevel: 0.5,
@@ -45,7 +47,7 @@ var mooCarousel = new Class({
 		prepareLink: function(linkID, imgName){
 			return nextAnchor = new Element('a', {
 				id: this.numberPrefix + linkID,
-				html: "<img src='img/"+imgName+"' height='40' width='40' />",
+				html: "<img src='"+this.options.imagesPath+imgName+"' height='40' width='40' />",
 				styles: {
 					color: 'black',
 					cursor: 'pointer',

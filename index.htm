@@ -1,94 +1,226 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>mooCarousel</title>
 <script type="text/javascript" src="js/mootools-core-1.3-full-compat.js"></script>
 <script type="text/javascript" src="js/mooCarousel.js"></script>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="menu/menu_style.css" type="text/css" />
+<!--[if lte IE 7]>
+<style>
+.content { margin-right: -1px; }
+ul.nav a { zoom: 1; } 
+</style>
+<![endif]-->
+<link href="menu_style.css" rel="stylesheet" type="text/css" />
 <style>
 	.imagesP, .imagesV{
 		visibility:hidden;
 	}
 </style>
 <script type="text/javascript">	
-	window.addEvent('load', function(){
-		new mooCarousel({elementClass: '.imagesP', slideStep: 2, elementsPerScreen: 3, direction: 'horizontal', bgColor: 'black', arrowColorScheme: 'blue'});
+	var currentTab = "about";
+	function enableTab(tabName){
+		window.location.hash = tabName;
+		$(currentTab).setStyles({display: "none"});
+		$("menu_"+currentTab).setProperty('class', '');
 		
-		new mooCarousel({elementClass: '.imagesV', slideStep: 1.5, elementsPerScreen: 3, direction: 'vertical', bgColor: '#151D54', arrowColorScheme: 'darkblue'});		
-	});	
+		$(tabName).setStyles({display: ""});
+		$("menu_"+tabName).setProperty('class', 'current');		
+		
+		currentTab = tabName;
+	}
+	
+	window.addEvent('load', function(){
+		new mooCarousel({elementClass: '.imagesP', slideStep: 2, elementsPerScreen: 3, direction: 'horizontal', bgColor: '#0D2247', arrowColorScheme: 'darkblue'});		
+		new mooCarousel({elementClass: '.imagesV', elementsPerScreen: 3, direction: 'vertical', bgColor: '#104033', arrowColorScheme: 'darkgreen'});
+		if(window.location.hash != "")
+			enableTab(window.location.hash.replace("#", ""));
+		else
+			enableTab("about");
+	});			
 </script>
 </head>
-<body style="background-color: white;">
-<h1>mooCarousel</h1>
-A mootools based image carousel. This is very lightweight and extremely configurable pluggin. Supports both horizontal and vertical carousels with multiple options. You can change the background color of the carousel, the animation style, animation duration, arrow image themes etc. (Look for options in the end)
-Tested with FF 3.6.11, IE 7.0, Chrome 7.0.517.41, Opera 10.60
-<h2>Horizontal Carousel</h2>
-<div>
-	<img class="imagesP" src="nThumbs/1280_1024_nature_wallpaper_106320843.jpg" />
-	<img class="imagesP" src="nThumbs/bjnxqwa0l0.jpg" />
-	<img class="imagesP" src="nThumbs/Exclusive Wallpaper Nature.jpeg" />
-	<img class="imagesP" src="nThumbs/green-nature-wallpaper.jpg" />
-	<img class="imagesP" src="nThumbs/nature_wallpaper_10.jpg" />
-	<img class="imagesP" src="nThumbs/nature_wallpapers.jpg" />
-	<img class="imagesP" src="nThumbs/nature-backgrounds-cerro-torre-los-glaciares-national-park-patagonia-argentina.jpg" />
-	<img class="imagesP" src="nThumbs/nature-backgrounds-coast-of-victoria-australia.jpg" />
-	<img class="imagesP" src="nThumbs/nature-backgrounds-cool-runnings-yosemite-national-park-california.jpg" />
-	<img class="imagesP" src="nThumbs/nature-backgrounds-cool-water-sawtooth-wilderness-idaho.jpg" />
-	<img class="imagesP" src="nThumbs/nature-backgrounds-cumberland-falls-kentucky.jpg" />
-	<img class="imagesP" src="nThumbs/Nature-wallpaper-98.jpg" />
-	<img class="imagesP" src="nThumbs/nature-wallpaper-aerial-view-of-niagara-falls-ontario-canada.jpg" />
-	<img class="imagesP" src="nThumbs/nature-wallpapers.jpg" />
-	<img class="imagesP" src="nThumbs/wallpaper_nature_01.jpg" />
-</div>
-<h2>Vertical Carousel</h2>
-<div>
-	<img class="imagesV" src="nThumbs/1280_1024_nature_wallpaper_106320843.jpg" />
-	<img class="imagesV" src="nThumbs/bjnxqwa0l0.jpg" />
-	<img class="imagesV" src="nThumbs/Exclusive Wallpaper Nature.jpeg" />
-	<img class="imagesV" src="nThumbs/green-nature-wallpaper.jpg" />
-	<img class="imagesV" src="nThumbs/nature_wallpaper_10.jpg" />
-	<img class="imagesV" src="nThumbs/nature_wallpapers.jpg" />
-	<img class="imagesV" src="nThumbs/nature-backgrounds-cerro-torre-los-glaciares-national-park-patagonia-argentina.jpg" />
-	<img class="imagesV" src="nThumbs/nature-backgrounds-coast-of-victoria-australia.jpg" />
-	<img class="imagesV" src="nThumbs/nature-backgrounds-cool-runnings-yosemite-national-park-california.jpg" />
-	<img class="imagesV" src="nThumbs/nature-backgrounds-cool-water-sawtooth-wilderness-idaho.jpg" />
-	<img class="imagesV" src="nThumbs/nature-backgrounds-cumberland-falls-kentucky.jpg" />
-	<img class="imagesV" src="nThumbs/Nature-wallpaper-98.jpg" />
-	<img class="imagesV" src="nThumbs/nature-wallpaper-aerial-view-of-niagara-falls-ontario-canada.jpg" />
-	<img class="imagesV" src="nThumbs/nature-wallpapers.jpg" />
-	<img class="imagesV" src="nThumbs/wallpaper_nature_01.jpg" />
-</div>
 
-<h2>How to use</h2>
-<ul>
-<li>Since, mooCarousel is a carousel script based on mootools, therefore, first you need to include mootools. You can download latest version from <a href="http://mootools.net/download">here</a>.</li>
-<li>Download the mooCarousel script and images from <a href="http://github.com/saadnawaz/moocarousel/">here</a> and include it in the script</li>
-<li>Since, the library requires all images to load, therefore, try a small trick of putting visibility:hidden in the style of all images. The plugin will itself change the visibility of images accordingly.</li>
-<li>Assign all the elements same class name on which you want to create carousel</li>
-<li>Instantiate the carousel class onload using;<br/>
-	<i><b>new mooCarousel({elementClass: '.imagesP', elementsPerScreen: 3, direction: 'horizontal', bgColor: 'black', arrowColorScheme: 'blue'});</b></i>
-</li>
-elementClass: null,
-			slideStep: 1,
-			opacityLevel: 0.5,
-			elementsPerScreen: 4,
-			bgColor: 'gray',
-			direction: 'horizontal',
-			transitionEffect: Fx.Transitions.Bounce.easeOut,
-			durationTime: 'normal',
-			arrowColorScheme: 'blue'
-<li>Options are:
-	<ul>
-		<li><b>elementsPerScreen:</b> Number of images you want to display per carousel slide. Default to 4</li>
-		<li><b>elementClass:</b> Name of the class which is applied on all images</li>
-		<li><b>slideStep:</b> Number of images you want to move when carousel slide is moved using arrow buttons. By default 1 image is moved out of the carousel window</li>
-		<li><b>durationTime:</b> Duration of the effect. Possible values are 'short', 'normal', 'long' or time in milliseconds. Default to 'long'</li>
-		<li><b>transitionEffect:</b> Mootools Fx.Transition effect. Defaults to Fx.Transitions.Bounce.easeOut</li>
-		<li><b>bgColor:</b> Background color of the carousel. Default is black (#000000)</li>
-		<li><b>direction:</b> Direction of the carousel. Possible values are "horizontal" and "vertical". Default is "horizontal"</li>
-		<li><b>direction:</b> Direction of the carousel. Possible values are "horizontal" and "vertical". Default is "horizontal"</li>
-		<li><b>arrowColorScheme:</b> The color scheme of the arrow images. Possible values are "blue", "darkblue", "black", "lightgreen", "darkgreen", "orange", "red". Default is "blue"</li>
-		<li><b>opacityLevel:</b> When the carousel is moved, how much opacity of the images should be decreased. Possible values are 0 to 1. Default is 0.4</li>
-	</ul>
-</li>
-</ul>
+<body>
+
+<div class="container">
+  <div class="header">
+		<table border="0" width = "100%">
+			<tr>
+				<td style="vertical-align: bottom; width: 20%">
+					&nbsp;
+				</td>
+				<td align="center" style="text-align: center; width: 60%;">	  
+				 <h1 >mooCarousel</h1>
+				</td>
+				<td align="right" style="vertical-align: bottom; width: 20%;">
+						&nbsp;
+				</td>
+			</tr>
+		</table>
+	</div>
+   <div class="menu">
+		<ul class="menu red">
+			<li id="menu_about"><a href="javascript:enableTab('about')">About</a></li>
+			<li id="menu_demos"><a href="javascript:enableTab('demos')">Demos</a></li>
+			<li id="menu_options"><a href="javascript:enableTab('options')">Options</a></li>
+			<li id="menu_howTo"><a href="javascript:enableTab('howTo')">How to use</a></li>
+			<li id="menu_Download"><a href="http://saadnawaz.github.com/mooCarousel">Download</a></li>			
+		</ul>
+	</div>
+  <div class="content" id="content">
+		<div id="about" style="display: none;">
+			A mootools based image carousel. This is very lightweight and extremely configurable pluggin. Supports both horizontal and vertical carousels with multiple options. You can change the background color of the carousel, the animation style, animation duration, arrow image themes etc. (Look for options in the end)<br/><br/>
+		<b>Tested with FF 3.6.11, IE 7.0, Chrome 7.0.517.41, Opera 10.60</b>
+		</div>
+		<div id="demos" style="display: none;">
+			<h2>Horizontal carousel</h2>			
+			<div>
+				<img class="imagesP" src="nThumbs/1280_1024_nature_wallpaper_106320843.jpg" />
+				<img class="imagesP" src="nThumbs/bjnxqwa0l0.jpg" />
+				<img class="imagesP" src="nThumbs/Exclusive Wallpaper Nature.jpeg" />
+				<img class="imagesP" src="nThumbs/green-nature-wallpaper.jpg" />
+				<img class="imagesP" src="nThumbs/nature_wallpaper_10.jpg" />
+				<img class="imagesP" src="nThumbs/nature_wallpapers.jpg" />
+				<img class="imagesP" src="nThumbs/nature-backgrounds-cerro-torre-los-glaciares-national-park-patagonia-argentina.jpg" />
+				<img class="imagesP" src="nThumbs/nature-backgrounds-coast-of-victoria-australia.jpg" />
+				<img class="imagesP" src="nThumbs/nature-backgrounds-cool-runnings-yosemite-national-park-california.jpg" />
+				<img class="imagesP" src="nThumbs/nature-backgrounds-cool-water-sawtooth-wilderness-idaho.jpg" />
+				<img class="imagesP" src="nThumbs/nature-backgrounds-cumberland-falls-kentucky.jpg" />
+				<img class="imagesP" src="nThumbs/Nature-wallpaper-98.jpg" />
+				<img class="imagesP" src="nThumbs/nature-wallpaper-aerial-view-of-niagara-falls-ontario-canada.jpg" />
+				<img class="imagesP" src="nThumbs/nature-wallpapers.jpg" />
+				<img class="imagesP" src="nThumbs/wallpaper_nature_01.jpg" />
+			</div>
+			<pre>
+new mooCarousel({elementClass: '.imagesP',
+		 slideStep: 2, 
+		 elementsPerScreen: 3,
+		 direction: 'horizontal',
+		 bgColor: '#0D2247',
+		 arrowColorScheme: 'darkblue'
+		});
+			</pre>
+			<h2>Vertical carousel</h2>			
+			<div>
+				<img class="imagesV" src="nThumbs/1280_1024_nature_wallpaper_106320843.jpg" />
+				<img class="imagesV" src="nThumbs/bjnxqwa0l0.jpg" />
+				<img class="imagesV" src="nThumbs/Exclusive Wallpaper Nature.jpeg" />
+				<img class="imagesV" src="nThumbs/green-nature-wallpaper.jpg" />
+				<img class="imagesV" src="nThumbs/nature_wallpaper_10.jpg" />
+				<img class="imagesV" src="nThumbs/nature_wallpapers.jpg" />
+				<img class="imagesV" src="nThumbs/nature-backgrounds-cerro-torre-los-glaciares-national-park-patagonia-argentina.jpg" />
+				<img class="imagesV" src="nThumbs/nature-backgrounds-coast-of-victoria-australia.jpg" />
+				<img class="imagesV" src="nThumbs/nature-backgrounds-cool-runnings-yosemite-national-park-california.jpg" />
+				<img class="imagesV" src="nThumbs/nature-backgrounds-cool-water-sawtooth-wilderness-idaho.jpg" />
+				<img class="imagesV" src="nThumbs/nature-backgrounds-cumberland-falls-kentucky.jpg" />
+				<img class="imagesV" src="nThumbs/Nature-wallpaper-98.jpg" />
+				<img class="imagesV" src="nThumbs/nature-wallpaper-aerial-view-of-niagara-falls-ontario-canada.jpg" />
+				<img class="imagesV" src="nThumbs/nature-wallpapers.jpg" />
+				<img class="imagesV" src="nThumbs/wallpaper_nature_01.jpg" />
+			</div>
+			<br/>
+			<pre>
+new mooCarousel({elementClass: '.imagesV',
+		 elementsPerScreen: 3,
+		 direction: 'vertical',
+		 bgColor: '#104033',
+		 arrowColorScheme: 'darkgreen'
+		});
+			</pre>
+		</div>
+		<div id="options" style="display: none;">
+			<table border="0" width="100%">
+				<tr>
+					<td width="20%"><h2>Option</h2></td>
+					<td width="10%"><h2>Type</h2></td>
+					<td width="20%"><h2>Default</h2></td>
+					<td width="50%"><h2>Description</h2></td>
+				</tr>
+				<tr>
+					<td><b>elementClass</b></td>
+					<td>String</td>
+					<td>None</td>
+					<td>Name of the class which is applied on all images</td>
+				</tr>
+				<tr>
+					<td><b>elementsPerScreen</b></td>
+					<td>Number</td>
+					<td>4</td>
+					<td>Number of images you want to display per carousel slide</td>
+				</tr>
+				<tr>
+					<td><b>slideStep</b></td>
+					<td>Number</td>
+					<td>1</td>
+					<td>Number of images you want to move when carousel slide is moved using arrow buttons</td>
+				</tr>
+				<tr>
+					<td><b>durationTime</b></td>
+					<td>String/Number</td>
+					<td>'long'</td>
+					<td>Duration of the effect. Possible values are 'short', 'normal', 'long' or time in milliseconds</td>
+				</tr>
+				<tr>
+					<td><b>transitionEffect</b></td>
+					<td>String</td>
+					<td>'Fx.Transitions.Bounce.easeOut'</td>
+					<td>Mootools Fx.Transition effect. Effect using which the carousel should slide. Detail of Mootools Fx.Transition can be found <a href="http://mootools.net/docs/core/Fx/Fx.Transitions">here</a></td>
+				</tr>
+				<tr>
+					<td><b>bgColor</b></td>
+					<td>String</td>
+					<td>'#000000' (black)</td>
+					<td>Background color of the carousel</td>
+				</tr>
+				<tr>
+					<td><b>direction</b></td>
+					<td>String</td>
+					<td>'horizontal'</td>
+					<td>Direction of the carousel. Possible values are "horizontal" and "vertical"</td>
+				</tr>
+				<tr>
+					<td><b>arrowColorScheme</b></td>
+					<td>String</td>
+					<td>'blue'</td>
+					<td>The color scheme of the arrow images. Possible values are "blue", "darkblue", "black", "lightgreen", "darkgreen", "orange", "red"</td>
+				</tr>
+				<tr>
+					<td><b>opacityLevel</b></td>
+					<td>Number</td>
+					<td>0.4</td>
+					<td>When the carousel is moved, how much opacity of the images should be decreased. Possible values are 0 to 1</td>
+				</tr>
+				<tr>
+					<td><b>imagesPath</b></td>
+					<td>String</td>
+					<td>'img/'</td>
+					<td>The path where the arrow images are placed</td>
+				</tr>
+			</table>			
+		</div>
+		<div style="display: none;" id="howTo">
+			<ul>
+				<li>Since, mooCarousel is a carousel script based on mootools, therefore, first you need to include mootools. You can download latest version from <a href="http://mootools.net/download">here</a>.</li>
+				<li>Download the mooCarousel script and images from <a href="http://github.com/saadnawaz/moocarousel/">here</a> and include it in the script</li>
+				<li>Since, the library requires all images to load, therefore, try a small trick of putting visibility:hidden in the style of all images. The plugin will itself change the visibility of images accordingly.</li>
+				<li>Assign all the elements same class name on which you want to create carousel</li>
+				<li>Instantiate the carousel class onload using;<br/>
+				<pre>
+new mooCarousel({elementClass: '.imagesP',
+		 slideStep: 2, 
+		 elementsPerScreen: 3,
+		 direction: 'horizontal',
+		 bgColor: '#0D2247',
+		 arrowColorScheme: 'darkblue'
+		});
+			</pre>				
+				</ul>
+		</div>
+	</div>
+ </div>	
+ </div>
 </body>
 </html>
