@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,7 +19,7 @@ ul.nav a { zoom: 1; }
 	}
 </style>
 <script type="text/javascript">	
-	var currentTab = "about";
+	var currentTab = "demos";
 	function enableTab(tabName){
 		window.location.hash = tabName;
 		$(currentTab).setStyles({display: "none"});
@@ -38,7 +37,7 @@ ul.nav a { zoom: 1; }
 		if(window.location.hash != "")
 			enableTab(window.location.hash.replace("#", ""));
 		else
-			enableTab("about");
+			enableTab("demos");
 	});			
 </script>
 </head>
@@ -70,12 +69,12 @@ ul.nav a { zoom: 1; }
 			<li id="menu_Download"><a href="http://github.com/saadnawaz/moocarousel/">Download</a></li>			
 		</ul>
 	</div>
-  <div class="content" id="content">
+  <div class="content">
 		<div id="about" style="display: none;">
 			A mootools based image carousel. This is very lightweight and extremely configurable pluggin. Supports both horizontal and vertical carousels with multiple options. You can change the background color of the carousel, the animation style, animation duration, arrow image themes etc. (Look for options in the end)<br/><br/>
-		<b>Tested with FF 3.6.11, IE 7.0, Chrome 7.0.517.41, Opera 10.60</b>
+		<b>Tested with FF 3.6.11, IE 9.0.7 Beta, Chrome 7.0.517.41, Opera 10.60</b>
 		</div>
-		<div id="demos" style="display: none;">
+		<div id="demos" style="display: block;">
 			<h2>Horizontal carousel</h2>			
 			<div>
 				<img class="imagesP" src="nThumbs/1280_1024_nature_wallpaper_106320843.jpg" />
@@ -132,7 +131,7 @@ new mooCarousel({elementClass: '.imagesV',
 			</pre>
 		</div>
 		<div id="options" style="display: none;">
-			<table border="0" width="100%">
+			<table border="0" width="90%" style="color: #fff;">
 				<tr>
 					<td width="20%"><h2>Option</h2></td>
 					<td width="10%"><h2>Type</h2></td>

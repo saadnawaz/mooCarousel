@@ -33,10 +33,7 @@ a:link {
 	color:#414958;
 	text-decoration: underline;
 }
-a:visited {
-	color: #4E5869;
-	text-decoration: underline;
-}
+
 a:hover, a:active, a:focus {
 	text-decoration: none;
 }
@@ -44,7 +41,8 @@ a:hover, a:active, a:focus {
 .container {
 	width: 85%;
 	background: #6F7D94;
-	margin: 0 auto; 
+	margin: 0 auto;
+	_margin-left: 10%;
 }
 
 .header {
