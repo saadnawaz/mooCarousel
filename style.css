@@ -1,0 +1,197 @@
+body {
+	font-family: Calibri, Helvetica, sans-serif;
+	background: #1e1e1e;
+	margin: 0;
+	padding: 0;
+	color: #000;	
+}
+
+h1, h2, h3{
+	color: #4E5869;
+	text-decoration: underline;
+}
+h1 {
+	font-size: 26px;	
+}
+
+h2 {
+	font-size: 20px;
+}
+
+h3 {	
+	font-size: 16px;
+}
+
+#header{
+	width: 100%;	
+}
+a img { 
+	border: none;
+}
+
+a:link {
+	color:#414958;
+	text-decoration: underline;
+}
+a:visited {
+	color: #4E5869;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus {
+	text-decoration: none;
+}
+
+.container {
+	width: 85%;
+	background: #6F7D94;
+	margin: 0 auto; 
+}
+
+.header {
+	background: black;
+	width: 100%;
+	padding-top: 20px;
+}
+
+.content {
+	width: 100%;	
+	color: white;
+	float: left;
+	background-color: black;	
+}
+
+.fltrt {
+	float: right;
+	margin-left: 8px;
+}
+.fltlft {
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat {
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+.textField{
+	width: 250px;
+	height: 22px;
+	font-family: Arial, Sans-Serif;
+    font-size: 13px;
+    margin: 5px 0px;
+    display: block;
+    padding: 4px;
+    border: solid 1px #4E5869;
+    width: 300px;
+    background-image: url( 'images/inputBg.png' );
+    background-repeat: repeat-x;
+    background-position: top;
+	float: left;
+}
+
+.textField:focus
+{
+    background-image: none;
+    background-color: #ffffff;
+    border: solid 1px #33677F;
+}
+
+.dropDown{
+	border: solid 1px #4E5869;
+	margin: 5px 0px;
+	width: 250px;
+	background-color: #33677F;
+	font-family: Arial, Sans-Serif;
+    font-size: 13px;
+	color: white;
+}
+
+.registeration:hover{
+	background-color: #BABCC2;
+}
+
+textarea{
+	font-family: Arial, Sans-Serif;
+    font-size: 13px;
+    display: block;
+    padding: 4px;
+    border: solid 1px #4E5869;
+    width: 300px;
+    background-image: url( 'images/inputBg.png' );
+    background-repeat: repeat-x;
+    background-position: top;	
+}
+
+textarea:focus
+{
+    background-image: none;
+    background-color: #ffffff;
+    border: solid 1px #33677F;
+}
+
+.button{
+	background-color:#4E5869;
+	border: solid 1px #4E5869;
+	color: white;
+	cursor: pointer;
+	font-family: Arial;
+}
+
+.button:hover{
+	background-color: #2580a2;
+	border: solid 1px #2580a2;
+}
+
+.registerImage{
+	height: 25px;
+	width: 25px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 7px;
+}
+
+.registerError{
+	width: 200px;
+	height: 25px;
+	background-color: black;	
+	opacity: 0.6;
+	float: left;
+	color: red;
+	font-size: 13;
+	margin-top: 7px;
+}
+.content a{
+	color: #fff;
+}
+
+.button1{
+	background-color:#6F7D94;
+	border: solid 1px #4E5869;
+	color: white;
+	cursor: pointer;
+	font-family: Arial;
+}
+
+.button1:hover{
+	background-color: #2580a2;
+	border: solid 1px #2580a2;
+}
+
+.trHeader{
+	background-color: #2580a2;
+}
+
+pre{
+	border: 1px dashed #B11718;
+	background: white;
+	color: black;
+	font-family: Courier;
+	font-size: 11pt;
+	padding: 10px 30px;	
+}
+
+#about, #demos, #options, #howTo{
+	padding: 20px;
+}
