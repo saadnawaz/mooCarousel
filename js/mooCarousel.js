@@ -91,14 +91,15 @@ var mooCarousel = new Class({
 			firstDiv.inject(secondDiv);
 			
 			var secondLink = this.prepareLink('slideAhead', this.secondDirectionName + "-" + this.options.arrowColorScheme + ".png");
-			
+			var that = this;
 			secondLink.addEvents({
-				click: function(){this.moveSlideRight();}.bind(this)
+				click: function(){this.moveSlideRight();}.bind(that)
 			});
 			
 			var firstLink = this.prepareLink('slideBack', this.firstDirectionName + "-" + this.options.arrowColorScheme + ".png");
+			
 			firstLink.addEvents({
-				click: function(){this.moveSlideLeft();}.bind(this)
+				click: function(){this.moveSlideLeft();}.bind(that)
 			});
 			
 			var leftDiv = new Element('div', {styles: {float: 'left', textAlign: 'center', backgroundColor: this.options.bgColor}});
@@ -119,7 +120,7 @@ var mooCarousel = new Class({
 					backgroundColor: this.options.bgColor,
 					padding: divPading
 				}
-			});
+			});			
 
 			secondDiv.inject(thirdDiv);	
 			if(this.options.direction == 'horizontal'){
@@ -177,14 +178,13 @@ var mooCarousel = new Class({
 				return false;
 			this.leftTimes++;
 			$(this.numberPrefix+'el').tween('opacity', this.options.opacityLevel).tween(this.slideProperty, -(this.wid+this.options.imgPadding)*this.options.slideStep*this.leftTimes).tween('opacity', 1);
+			console.log(($(this.numberPrefix + 'el').getStyle(this.slideProperty).replace("px","")));
 		},
 		
-		moveSlideRight: function(){
+		moveSlideRight: function(){			
 			if(this.leftTimes == 0)
 				return false;
-			this.leftTimes--;
-			a = parseInt($(this.numberPrefix + 'el').getStyle(this.slideProperty).replace("px",""));
-			b = (this.wid+this.options.imgPadding)*this.options.slideStep;			
-			$(this.numberPrefix+'el').tween('opacity', this.options.opacityLevel).tween(this.slideProperty, a+b).tween('opacity', 1);
+			this.leftTimes--;			
+			$(this.numberPrefix+'el').tween('opacity', this.options.opacityLevel).tween(this.slideProperty, -(this.wid+this.options.imgPadding)*this.options.slideStep*this.leftTimes).tween('opacity', 1);
 		}		
 	});
