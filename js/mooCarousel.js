@@ -178,7 +178,6 @@ var mooCarousel = new Class({
 				return false;
 			this.leftTimes++;
 			$(this.numberPrefix+'el').tween('opacity', this.options.opacityLevel).tween(this.slideProperty, -(this.wid+this.options.imgPadding)*this.options.slideStep*this.leftTimes).tween('opacity', 1);
-			console.log(($(this.numberPrefix + 'el').getStyle(this.slideProperty).replace("px","")));
 		},
 		
 		moveSlideRight: function(){			
